@@ -11,7 +11,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
@@ -24,9 +24,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    colorTween = new ColorTween(begin: ColorChoies.colors[0], end: ColorChoies.colors[1]);
+    colorTween =  ColorTween(begin: ColorChoies.colors[0], end: ColorChoies.colors[1]);
     backgroundColor = todos[0].color;
-    scrollController = new ScrollController();
+    scrollController =  ScrollController();
     scrollController.addListener(() {
       ScrollPosition position = scrollController.position;
       ScrollDirection direction = position.userScrollDirection;
@@ -74,86 +74,86 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
     
 
-    return new Container(
-      decoration: new BoxDecoration(
+    return  Container(
+      decoration:  BoxDecoration(
         color: backgroundColor
       ),
-      child: new Scaffold(
+      child:  Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: new AppBar(
+        appBar:  AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: new Text("TODO"),
-          leading: new IconButton(
-            icon: new Icon(CustomIcons.menu),
+          title:  Text("TODO"),
+          leading:  IconButton(
+            icon:  Icon(CustomIcons.menu),
             onPressed: () {},
           ),
           actions: <Widget>[
-            new IconButton(
-              icon: new Icon(CustomIcons.search, size: 26.0,),
+             IconButton(
+              icon:  Icon(CustomIcons.search, size: 26.0,),
               onPressed: () {},
             )
           ],
         ),
-        body: new Container(
-          child: new Stack(
+        body:  Container(
+          child:  Stack(
           children: <Widget>[
-            new Container(
-              child: new Column(
+             Container(
+              child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  new Container(
+                   Container(
                     padding: const EdgeInsets.only(top: 20.0, bottom: 20.0, left: 50.0, right: 60.0),
-                    child: new Column(
+                    child:  Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        new Padding(
+                         Padding(
                           padding: const EdgeInsets.only(bottom: 25.0),
-                          child: new Container(
-                            decoration: new BoxDecoration(
+                          child:  Container(
+                            decoration:  BoxDecoration(
                               boxShadow: [
-                                new BoxShadow(
+                                 BoxShadow(
                                   color: Colors.black38,
-                                  offset: new Offset(5.0, 5.0),
+                                  offset:  Offset(5.0, 5.0),
                                   blurRadius: 15.0
                                 )
                               ],
                               shape: BoxShape.circle,
                             ),
-                            child: new CircleAvatar(
+                            child:  CircleAvatar(
                               backgroundColor: Colors.grey,
                             ),
                           ),
                         ),
-                        new Padding(
+                         Padding(
                           padding: const EdgeInsets.only(bottom: 10.0),
-                          child: new Text(
+                          child:  Text(
                             "Hello, John.",
-                            style: new TextStyle(
+                            style:  TextStyle(
                               color: Colors.white,
                               fontSize: 30.0
                             ),
                           ),
                         ),
-                        new Text(
+                         Text(
                           "This is a daily quote.",
-                          style: new TextStyle(
+                          style:  TextStyle(
                             color: Colors.white70
                           ),
                         ),
-                        new Text(
+                         Text(
                           "You have 10 tasks to do today.",
-                          style: new TextStyle(
+                          style:  TextStyle(
                             color: Colors.white70
                           ),
                         ),
                       ],
                     ),
                   ),
-                  new Container(
+                   Container(
                     height: 350.0,
                     width: _width,
-                    child: new ListView.builder(
+                    child:  ListView.builder(
                       itemBuilder: (context, index) {
                         
                         TodoObject todoObject = todos[index];
@@ -161,22 +161,22 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
                         double percentComplete = todoObject.percentComplete();
                         
-                        return new Padding(
+                        return  Padding(
                           padding: padding,
-                          child: new InkWell(
+                          child:  InkWell(
                             onTap: () {
                               
                               Navigator.of(context).push(new PageRouteBuilder(
-                                pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) => new DetailPage(todoObject: todoObject),
+                                pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) =>  DetailPage(todoObject: todoObject),
                                 transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child,) {
                                   
-                                  return new SlideTransition(
-                                    position: new Tween<Offset>(
+                                  return  SlideTransition(
+                                    position:  Tween<Offset>(
                                       begin: const Offset(0.0, 1.0),
                                       end: Offset.zero,
                                     ).animate(animation),
-                                    child: new SlideTransition(
-                                      position: new Tween<Offset>(
+                                    child:  SlideTransition(
+                                      position:  Tween<Offset>(
                                         begin: Offset.zero,
                                         end: const Offset(0.0, 1.0),
                                       ).animate(secondaryAnimation),
@@ -187,11 +187,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 transitionDuration: const Duration(milliseconds: 1000)
                               ));
                             },
-                            child: new Container(
-                              decoration: new BoxDecoration(
-                                borderRadius: new BorderRadius.circular(10.0),
+                            child:  Container(
+                              decoration:  BoxDecoration(
+                                borderRadius:  BorderRadius.circular(10.0),
                                 boxShadow: [
-                                  new BoxShadow(
+                                   BoxShadow(
                                     color: Colors.black.withAlpha(70),
                                     offset: const Offset(3.0, 10.0),
                                     blurRadius: 15.0
@@ -199,51 +199,51 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 ]
                               ),
                               height: 250.0,
-                              child: new Stack(
+                              child:  Stack(
                                 children: <Widget>[
-                                  new Hero(
+                                   Hero(
                                     tag: todoObject.uuid + "_background",
-                                    child: new Container(
-                                      decoration: new BoxDecoration(
+                                    child:  Container(
+                                      decoration:  BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: new BorderRadius.circular(10.0),
+                                        borderRadius:  BorderRadius.circular(10.0),
                                       ),
                                     ),
                                   ),
-                                  new Padding(
+                                   Padding(
                                     padding: const EdgeInsets.all(16.0),
-                                    child: new Column(
+                                    child:  Column(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: <Widget>[
-                                        new Expanded(
-                                          child: new Row(
+                                         Expanded(
+                                          child:  Row(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: <Widget>[
-                                              new Hero(
+                                               Hero(
                                                 tag: todoObject.uuid + "_icon",
-                                                child: new Container(
-                                                  decoration: new BoxDecoration(
+                                                child:  Container(
+                                                  decoration:  BoxDecoration(
                                                     shape: BoxShape.circle,
-                                                    border: new Border.all(color: Colors.grey.withAlpha(70), style: BorderStyle.solid, width: 1.0),
+                                                    border:  Border.all(color: Colors.grey.withAlpha(70), style: BorderStyle.solid, width: 1.0),
                                                   ),
-                                                  child: new Padding(
+                                                  child:  Padding(
                                                     padding: const EdgeInsets.all(8.0),
-                                                    child: new Icon(todoObject.icon, color: todoObject.color),
+                                                    child:  Icon(todoObject.icon, color: todoObject.color),
                                                   ),
                                                 ),
                                               ),
-                                              new Expanded(
-                                                child: new Container(
+                                               Expanded(
+                                                child:  Container(
                                                   alignment: Alignment.topRight,
-                                                  child: new Hero(
+                                                  child:  Hero(
                                                     tag: todoObject.uuid + "_more_vert",
-                                                    child: new Material(
+                                                    child:  Material(
                                                       color: Colors.transparent,
                                                       type: MaterialType.transparency,
-                                                      child: new IconButton(
-                                                        icon: new Icon(Icons.more_vert, color: Colors.grey,),
+                                                      child:  IconButton(
+                                                        icon:  Icon(Icons.more_vert, color: Colors.grey,),
                                                         onPressed: () {},
                                                       ),
                                                     ),
@@ -253,17 +253,17 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                             ],
                                           ),
                                         ),
-                                        new Padding(
+                                         Padding(
                                           padding: const EdgeInsets.only(bottom: 8.0),
-                                          child: new Align(
+                                          child:  Align(
                                             alignment: Alignment.bottomLeft,
-                                            child: new Hero(
+                                            child:  Hero(
                                               tag: todoObject.uuid + "_number_of_tasks",
-                                              child: new Material(
+                                              child:  Material(
                                                 color: Colors.transparent,
-                                                child: new Text(
+                                                child:  Text(
                                                   todoObject.taskAmount().toString() + " Tasks",
-                                                  style: new TextStyle(
+                                                  style:  TextStyle(
 
                                                   ),
                                                 )
@@ -271,17 +271,17 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                             )
                                           )
                                         ),
-                                        new Padding(
+                                         Padding(
                                           padding: const EdgeInsets.only(bottom: 20.0),
-                                          child: new Align(
+                                          child:  Align(
                                             alignment: Alignment.bottomLeft,
-                                            child: new Hero(
+                                            child:  Hero(
                                               tag: todoObject.uuid + "_title",
-                                              child: new Material(
+                                              child:  Material(
                                                 color: Colors.transparent,
-                                                child: new Text(
+                                                child:  Text(
                                                   todoObject.title,
-                                                  style: new TextStyle(
+                                                  style:  TextStyle(
                                                     fontSize: 30.0
                                                   ),
                                                 ),
@@ -289,24 +289,24 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                             )
                                           ),
                                         ),
-                                        new Align(
+                                         Align(
                                           alignment: Alignment.bottomLeft,
-                                          child: new Hero(
+                                          child:  Hero(
                                             tag: todoObject.uuid + "_progress_bar",
-                                            child: new Material(
+                                            child:  Material(
                                               color: Colors.transparent,
-                                              child: new Row(
+                                              child:  Row(
                                                 children: <Widget>[
-                                                  new Expanded(
-                                                    child: new LinearProgressIndicator(
+                                                   Expanded(
+                                                    child:  LinearProgressIndicator(
                                                       value: percentComplete,
                                                       backgroundColor: Colors.grey.withAlpha(50),
-                                                      valueColor: new AlwaysStoppedAnimation<Color>(todoObject.color),
+                                                      valueColor:  AlwaysStoppedAnimation<Color>(todoObject.color),
                                                     ),
                                                   ),
-                                                  new Padding(
+                                                   Padding(
                                                     padding: const EdgeInsets.only(left: 5.0),
-                                                    child: new Text(
+                                                    child:  Text(
                                                       (percentComplete*100).round().toString() + "%"
                                                     ),
                                                   )
@@ -327,7 +327,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       },
                       padding: const EdgeInsets.only(left: 40.0, right: 40.0),
                       scrollDirection: Axis.horizontal,
-                      physics: new CustomScrollPhysics(),
+                      physics:  CustomScrollPhysics(),
                       controller: scrollController,
                       itemExtent: _width - 80,
                       itemCount: todos.length,
@@ -336,14 +336,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            new Padding(
+             Padding(
               padding: const EdgeInsets.only(right: 15.0, bottom: 15.0),
-              child: new Align(
+              child:  Align(
                 alignment: Alignment.bottomRight,
-                child: new FloatingActionButton(
+                child:  FloatingActionButton(
                   onPressed: () {},
                   tooltip: 'Increment',
-                  child: new Icon(Icons.add),
+                  child:  Icon(Icons.add),
                 ),
               ),
             )

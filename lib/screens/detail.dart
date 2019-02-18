@@ -10,7 +10,7 @@ class DetailPage extends StatefulWidget {
   final TodoObject todoObject;
 
   @override
-  _DetailPageState createState() => new _DetailPageState();
+  _DetailPageState createState() =>  _DetailPageState();
 
 }
 
@@ -24,16 +24,16 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin{
 
   @override
   void initState() {
-    scaleAnimation = new AnimationController(vsync: this, duration: const Duration(milliseconds: 1000), lowerBound: 0.0, upperBound: 1.0);
+    scaleAnimation =  AnimationController(vsync: this, duration: const Duration(milliseconds: 1000), lowerBound: 0.0, upperBound: 1.0);
 
     percentComplete = widget.todoObject.percentComplete();
     barPercent = percentComplete;
-    animationBar = new AnimationController(vsync: this, duration: const Duration(milliseconds: 100))..addListener(() {
+    animationBar =  AnimationController(vsync: this, duration: const Duration(milliseconds: 100))..addListener(() {
       setState(() {
         barPercent = animT.lerp(animationBar.value);
       });
     });;
-    animT = new Tween<double>(begin: percentComplete, end: percentComplete);
+    animT =  Tween<double>(begin: percentComplete, end: percentComplete);
     scaleAnimation.forward();
     super.initState();
   }
@@ -54,78 +54,78 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    return new Stack(
+    return  Stack(
       children: <Widget>[
-        new Hero(
+         Hero(
           tag: widget.todoObject.uuid + "_background",
-          child: new Container(
-            decoration: new BoxDecoration(
+          child:  Container(
+            decoration:  BoxDecoration(
               color: Colors.white,
-              borderRadius: new BorderRadius.circular(0.0),
+              borderRadius:  BorderRadius.circular(0.0),
             ),
           ),
         ),
-        new Scaffold(
+         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: new AppBar(
+          appBar:  AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0.0,
-            leading: new IconButton(
-              icon: new Icon(Icons.arrow_back, color: Colors.grey,),
+            leading:  IconButton(
+              icon:  Icon(Icons.arrow_back, color: Colors.grey,),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             actions: <Widget>[
-              new Hero(
+               Hero(
                 tag: widget.todoObject.uuid + "_more_vert",
-                child: new Material(
+                child:  Material(
                   color: Colors.transparent,
                   type: MaterialType.transparency,
-                  child: new IconButton(
-                    icon: new Icon(Icons.more_vert, color: Colors.grey,),
+                  child:  IconButton(
+                    icon:  Icon(Icons.more_vert, color: Colors.grey,),
                     onPressed: () {},
                   ),
                 ),
               )
             ],
           ),
-          body: new Padding(
+          body:  Padding(
             padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 35.0),
-            child: new Column(
+            child:  Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                new Padding(
+                 Padding(
                   padding: const EdgeInsets.only(bottom: 30.0),
-                  child: new Align(
+                  child:  Align(
                     alignment: Alignment.bottomLeft,
-                    child: new Hero(
+                    child:  Hero(
                       tag: widget.todoObject.uuid + "_icon",
-                      child: new Container(
-                        decoration: new BoxDecoration(
+                      child:  Container(
+                        decoration:  BoxDecoration(
                           shape: BoxShape.circle,
-                          border: new Border.all(color: Colors.grey.withAlpha(70), style: BorderStyle.solid, width: 1.0),
+                          border:  Border.all(color: Colors.grey.withAlpha(70), style: BorderStyle.solid, width: 1.0),
                         ),
-                        child: new Padding(
+                        child:  Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: new Icon(widget.todoObject.icon, color: widget.todoObject.color,),
+                          child:  Icon(widget.todoObject.icon, color: widget.todoObject.color,),
                         ),
                       ),
                     ),
                   ),
                 ),
-                new Padding(
+                 Padding(
                   padding: const EdgeInsets.only(bottom: 12.0),
-                  child: new Align(
+                  child:  Align(
                     alignment: Alignment.bottomLeft,
-                    child: new Hero(
+                    child:  Hero(
                       tag: widget.todoObject.uuid + "_number_of_tasks",
-                      child: new Material(
+                      child:  Material(
                         color: Colors.transparent,
-                        child: new Text(
+                        child:  Text(
                           widget.todoObject.taskAmount().toString() + " Tasks",
-                          style: new TextStyle(
+                          style:  TextStyle(
 
                           ),
                         )
@@ -133,17 +133,17 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin{
                     )
                   )
                 ),
-                new Padding(
+                 Padding(
                   padding: const EdgeInsets.only(bottom: 20.0),
-                  child: new Align(
+                  child:  Align(
                     alignment: Alignment.bottomLeft,
-                    child: new Hero(
+                    child:  Hero(
                       tag: widget.todoObject.uuid + "_title",
-                      child: new Material(
+                      child:  Material(
                         color: Colors.transparent,
-                        child: new Text(
+                        child:  Text(
                           widget.todoObject.title,
-                          style: new TextStyle(
+                          style:  TextStyle(
                             fontSize: 30.0
                           ),
                         ),
@@ -151,26 +151,26 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin{
                     )
                   ),
                 ),
-                new Padding(
+                 Padding(
                   padding: const EdgeInsets.only(bottom:30.0),
-                  child: new Align(
+                  child:  Align(
                     alignment: Alignment.bottomLeft,
-                    child: new Hero(
+                    child:  Hero(
                       tag: widget.todoObject.uuid + "_progress_bar",
-                      child: new Material(
+                      child:  Material(
                         color: Colors.transparent,
-                        child: new Row(
+                        child:  Row(
                           children: <Widget>[
-                            new Expanded(
-                              child: new LinearProgressIndicator(
+                             Expanded(
+                              child:  LinearProgressIndicator(
                                 value: barPercent,
                                 backgroundColor: Colors.grey.withAlpha(50),
-                                valueColor: new AlwaysStoppedAnimation<Color>(widget.todoObject.color),
+                                valueColor:  AlwaysStoppedAnimation<Color>(widget.todoObject.color),
                               ),
                             ),
-                            new Padding(
+                             Padding(
                               padding: const EdgeInsets.only(left: 5.0),
-                              child: new Text(
+                              child:  Text(
                                 (barPercent*100).round().toString() + "%"
                               ),
                             )
@@ -180,24 +180,24 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin{
                     )
                   ),
                 ),
-                new Expanded(
-                  child: new ScaleTransition(
+                 Expanded(
+                  child:  ScaleTransition(
                     scale: scaleAnimation,
-                    child: new ListView.builder(
+                    child:  ListView.builder(
                       padding: const EdgeInsets.all(0.0),
                       itemBuilder: (BuildContext context, int index) {
                         DateTime currentDate = widget.todoObject.tasks.keys.toList()[index];
-                        DateTime _now = new DateTime.now();
-                        DateTime today = new DateTime(_now.year, _now.month, _now.day);
+                        DateTime _now =  DateTime.now();
+                        DateTime today =  DateTime(_now.year, _now.month, _now.day);
                         String dateString;
                         if (currentDate.isBefore(today)) {
-                          dateString = "Previous - " + new DateFormat.E().format(currentDate);
+                          dateString = "Previous - " +  DateFormat.E().format(currentDate);
                         }else if (currentDate.isAtSameMomentAs(today)) {
                           dateString = "Today";
                         }else if (currentDate.isAtSameMomentAs(today.add(const Duration(days: 1)))) {
                           dateString = "Tomorrow";
                         }else {
-                          dateString = new DateFormat.E().format(currentDate);
+                          dateString =  DateFormat.E().format(currentDate);
                         }
                         List<Widget> tasks = [new Text(dateString)];
                         widget.todoObject.tasks[currentDate].forEach((task) {
@@ -210,11 +210,11 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin{
                                 updateBarPercent();
                               });
                             },
-                            title: new Text(task.task),
-                            secondary: new Icon(Icons.alarm),
+                            title:  Text(task.task),
+                            secondary:  Icon(Icons.alarm),
                           ));
                         });
-                        return new Column(
+                        return  Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: tasks,
                         );

@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:todo/screens/homepage.dart';
 
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Better TODO',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Todo'),
+      home: MyHomePage(title: 'Todo'),
     );
   }
 }

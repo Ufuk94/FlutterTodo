@@ -10,25 +10,25 @@ class ColorChoies {
 }
 
 List<TodoObject> todos = [
-  // new TodoObject.import("SOME_RANDOM_UUID", "Custom", 1, ColorChoies.colors[0], Icons.alarm, [new TaskObject("Task", new DateTime.now()),new TaskObject("Task2", new DateTime.now()),new TaskObject.import("Task3", new DateTime.now(), true)]),
-  new TodoObject.import("SOME_RANDOM_UUID", "Custom", 1, ColorChoies.colors[1], Icons.alarm, {
-    new DateTime(2018, 5, 3): [
-      new TaskObject("Meet Clients", new DateTime(2018, 5, 3)),
-      new TaskObject("Design Sprint", new DateTime(2018, 5, 3)),
-      new TaskObject("Icon Set Design for Mobile", new DateTime(2018, 5, 3)),
-      new TaskObject("HTML/CSS Study", new DateTime(2018, 5, 3)),
+  //  TodoObject.import("SOME_RANDOM_UUID", "Custom", 1, ColorChoies.colors[0], Icons.alarm, [new TaskObject("Task",  DateTime.now()),new TaskObject("Task2",  DateTime.now()),new TaskObject.import("Task3",  DateTime.now(), true)]),
+   TodoObject.import("SOME_RANDOM_UUID", "Custom", 1, ColorChoies.colors[1], Icons.alarm, {
+     DateTime(2018, 5, 3): [
+       TaskObject("Meet Clients",  DateTime(2018, 5, 3)),
+       TaskObject("Design Sprint",  DateTime(2018, 5, 3)),
+       TaskObject("Icon Set Design for Mobile",  DateTime(2018, 5, 3)),
+       TaskObject("HTML/CSS Study",  DateTime(2018, 5, 3)),
     ],
-    new DateTime(2018, 5, 4): [
-      new TaskObject("Meet Clients", new DateTime(2018, 5, 4)),
-      new TaskObject("Design Sprint", new DateTime(2018, 5, 4)),
-      new TaskObject("Icon Set Design for Mobile", new DateTime(2018, 5, 4)),
-      new TaskObject("HTML/CSS Study", new DateTime(2018, 5, 4)),
+     DateTime(2018, 5, 4): [
+       TaskObject("Meet Clients",  DateTime(2018, 5, 4)),
+       TaskObject("Design Sprint",  DateTime(2018, 5, 4)),
+       TaskObject("Icon Set Design for Mobile",  DateTime(2018, 5, 4)),
+       TaskObject("HTML/CSS Study",  DateTime(2018, 5, 4)),
     ]
   }),
-  new TodoObject("Personal", Icons.person),
-  new TodoObject("Work", Icons.work),
-  new TodoObject("Home", Icons.home),
-  new TodoObject("Shopping", Icons.shopping_basket),
-  new TodoObject("School", Icons.school),
+   TodoObject("Personal", Icons.person),
+   TodoObject("Work", Icons.work),
+   TodoObject("Home", Icons.home),
+   TodoObject("Shopping", Icons.shopping_basket),
+   TodoObject("School", Icons.school),
 ];
 

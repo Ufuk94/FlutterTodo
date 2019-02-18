@@ -10,7 +10,7 @@ class CustomScrollPhysics extends ScrollPhysics {
 
   @override
   CustomScrollPhysics applyTo(ScrollPhysics ancestor) {
-    return new CustomScrollPhysics(parent: buildParent(ancestor));
+    return  CustomScrollPhysics(parent: buildParent(ancestor));
   }
 
   double _getPage(ScrollPosition position) {
@@ -40,7 +40,7 @@ class CustomScrollPhysics extends ScrollPhysics {
     final Tolerance tolerance = this.tolerance;
     final double target = _getTargetPixels(position, tolerance, velocity);
     if (target != position.pixels)
-      return new ScrollSpringSimulation(spring, position.pixels, target, velocity, tolerance: tolerance);
+      return  ScrollSpringSimulation(spring, position.pixels, target, velocity, tolerance: tolerance);
     return null;
   }
 
